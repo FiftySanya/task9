@@ -99,27 +99,8 @@ int main() {
     
     printf("Поточний користувач: %s (UID=%d, GID=%d)\n", get_owner_name(uid), uid, gid);
     
-    // Тестування файлу .bashrc замість .profile, якщо він існує
     char home_path[512];
-    snprintf(home_path, sizeof(home_path), "%s/.bashrc", getenv("HOME") ? getenv("HOME") : "/tmp");
-    
-    struct stat st;
-    if (stat(home_path, &st) == -1) {
-        // Якщо .bashrc не існує, спробуємо .cshrc, який часто використовується у FreeBSD
-        snprintf(home_path, sizeof(home_path), "%s/.cshrc", 
-                 getenv("HOME") ? getenv("HOME") : "/tmp");
-        if (stat(home_path, &st) == -1) {
-            // Якщо жоден з типових конфігураційних файлів не знайдено, 
-            // створимо тестовий файл
-            snprintf(home_path, sizeof(home_path), "%s/test_file.txt", getenv("HOME") ? getenv("HOME") : "/tmp");
-            FILE *fp = fopen(home_path, "w");
-            if (fp) {
-                fprintf(fp, "Тестовий файл для перевірки прав доступу\n");
-                fclose(fp);
-                printf("Створено тестовий файл %s\n", home_path);
-            }
-        }
-    }
+    snprintf(home_path, sizeof(home_path), "%s/.profile", getenv("HOME") ? getenv("HOME") : "/tmp");
     
     test_file_access(home_path); // Файл у домашньому каталозі
     test_file_access("/bin/ls"); // Шлях до команди ls у FreeBSD
