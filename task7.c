@@ -14,3 +14,7 @@ int main() {
   
     return 1;
 }
+
+// Скомпілювати gcc -Wall -lutil task7.c -o task7
+// У свій ~/.bashrc додаємо в кінець: ~/task7
+// Виконуємо source ~/.bashrc
