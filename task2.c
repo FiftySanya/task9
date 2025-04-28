@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 int main() {
-    printf("Запуск cat /etc/shadow через sudo.\n");
-    system("sudo cat /etc/shadow");
+    printf("Запуск cat /etc/master.passwd через sudo.\n");
+    system("sudo cat /etc/master.passwd");
+
     return 0;
 }
