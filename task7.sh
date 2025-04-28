@@ -1,5 +1,5 @@
    #!/usr/local/bin/env bash
-   # command_logger.sh — вбудовуємо логування в bash через DEBUG-trap
+   # task7.sh — вбудовуємо логування в bash через DEBUG-trap
 
    # Куди писати лог
    LOGFILE="$HOME/.user_commands.log"
@@ -12,6 +12,3 @@
    trap 'printf "%s %s %s %s\n" \
      "$(date "+%Y-%m-%d %H:%M:%S")" "$USER" "$PWD" "$BASH_COMMAND" \
      >> "$LOGFILE"' DEBUG
-
-   # У свій ~/.bashrc додаємо в кінець: source ~/task7.sh
-   # Виконуємо source ~/.bashrc
