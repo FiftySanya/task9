@@ -186,7 +186,7 @@ sh: cannot create temp.txt: Permission denied
 ```
 
 ### Пояснення
-- Скрипт `command_logger.sh`:
+- Скрипт `task7.sh`:
   - Створює файл `$HOME/.user_commands.log` із правами `rw-------`.
   - Використовує `trap DEBUG` для запису кожної команди у лог із міткою часу, ім’ям користувача, поточним каталогом та самою командою.
   - Додається до `.bashrc` через `source ~/task7.sh`.
